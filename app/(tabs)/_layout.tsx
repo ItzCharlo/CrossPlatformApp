@@ -12,19 +12,43 @@ export default function TabsLayout() {
         headerShadowVisible: false,
         headerTintColor: "#fff",
         tabBarStyle: {
-            backgroundColor: "#25292e"
+            backgroundColor: "#0f0d23",
+            borderRadius: 50,
+            marginHorizontal: 20,
+            marginBottom: 26,
+            height: 52,
+            position: "absolute",
+            overflow: "hidden",
+            borderWidth: 1,
+            borderColor: "0f0d23",
         }
     }}
     >
       <Tabs.Screen name="index" options={{
-        headerTitle: "Sticker Smash",
+        title: "Home",
+        headerShown: false,
         tabBarIcon: ({focused, color}) => <Ionicons 
-        name={focused ? "home-sharp" : "home-outline"} 
+        name={focused ? "home" : "home-outline"} 
         color={color}
         size={30}/>
       }}/>
-      <Tabs.Screen name="about" options={{
-        headerTitle: "About"
+
+      <Tabs.Screen name="search" options={{
+        title: "Search",
+        headerShown: false,
+        tabBarIcon: ({focused, color}) => <Ionicons 
+        name={focused ? "search" : "search"} 
+        color={color}
+        size={30}/>
+      }}/>
+
+      <Tabs.Screen name="Saved" options={{
+        title: "Saved",
+        headerShown: false,
+        tabBarIcon: ({focused, color}) => <Ionicons 
+        name={focused ? "bookmark-outline" : "bookmark-outline"} 
+        color={color}
+        size={30}/>
       }}/>
 
       <Tabs.Screen name="+not-found" options={{
