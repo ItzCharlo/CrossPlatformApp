@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
     height: (screenWidth - 40) * 1.5,
     borderRadius: 10,
     marginBottom: 20,
-    alignSelf: 'center', // poster er centreret
+    alignSelf: 'center',
   },
   title: {
     fontSize: 24,
@@ -136,20 +136,21 @@ const styles = StyleSheet.create({
     fontSize: 18,
   },
   backButton: {
-  position: 'absolute',
-  bottom: 30, // lidt hævet op fra bunden
-  left: 20,   // ud til venstre side
-  flexDirection: 'row',
-  alignItems: 'center',
-  backgroundColor: '#333', // bobbel baggrund
-  paddingVertical: 10,
-  paddingHorizontal: 20,
-  borderRadius: 25, // rund bobbel
-  shadowColor: '#000',
-  shadowOffset: { width: 0, height: 2 },
-  shadowOpacity: 0.3,
-  shadowRadius: 4,
-  elevation: 5,
+    position: 'absolute',
+    bottom: 30, // 👈 løfter den op fra bunden
+    left: '50%',
+    transform: [{ translateX: -50 }],
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#333', // bobbel baggrund
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 25, // rund bobbel
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4,
+    elevation: 5,
 },
   backText: {
     color: 'white',
