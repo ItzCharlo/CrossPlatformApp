@@ -51,7 +51,7 @@ export default function Index() {
             renderItem={({ item }) => (
               <MovieCard 
                 movie={item} 
-                //onPress={() => router.push(`/movie/${item.id}`)}
+                onPress={() => router.push(`/movie/${item.id}`)}
               />
             )}
             keyExtractor={(item) => item.id.toString()}

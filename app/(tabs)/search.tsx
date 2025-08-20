@@ -3,6 +3,7 @@ import SearchBarComponent from "@/components/SearchBar";
 import { fetchMovies } from "@/services/api";
 import useFetch from "@/services/useFetch";
 import { LinearGradient } from "expo-linear-gradient";
+import { router } from "expo-router";
 import { useEffect, useState } from "react";
 import { FlatList, StyleSheet, Text, View } from "react-native";
 
@@ -54,7 +55,10 @@ const Search = () => {
           numColumns={3}
           columnWrapperStyle={{ justifyContent: "space-between", marginBottom: 15 }}
           contentContainerStyle={{ paddingBottom: 20 }}
-          renderItem={({ item }) => <MovieCard movie={item} />}
+          renderItem={({ item }) => <MovieCard 
+          movie={item} 
+          onPress={() => router.push(`/movie/${item.id}`)}
+          />}
           ListHeaderComponent={
             <View>
 
