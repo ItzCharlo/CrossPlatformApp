@@ -1,19 +1,14 @@
 import { Stack } from "expo-router";
-import { StatusBar } from "react-native";
 
 export default function RootLayout() {
   return (
     <Stack>
+      {/* Hovedtabs eller startskærm */}
       <Stack.Screen 
-      name="(tabs)" 
-      options={{
-        headerShown: false,
-      }}/>
-
-      <Stack.Screen name="+not-found" options={{
-        headerShown: false,
-      }}
+        name="(tabs)" 
+        options={{ headerShown: false }} 
       />
+      {/* Andre screens kan tilføjes her */}
     </Stack>
   );
 }

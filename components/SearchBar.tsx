@@ -4,10 +4,12 @@ import { SearchBar } from '@rneui/themed';
 
 interface Props{
   placeholder: string;
+  value?: string;
   onPress?: () => void;
+  onChangeText?: (text: string) => void;
 }
 
-const SearchBarComponent = ({placeholder, onPress}: Props) => {
+const SearchBarComponent = ({placeholder, onPress, value, onChangeText}: Props) => {
   const [search, setSearch] = useState("");
 
 
@@ -16,8 +18,8 @@ const SearchBarComponent = ({placeholder, onPress}: Props) => {
       <SearchBar
       onPress={onPress}
         placeholder={placeholder}
-        value={search}
-        onChangeText={setSearch}
+        value={value}
+        onChangeText={onChangeText}
         lightTheme
         round
         containerStyle={styles.searchContainer}
