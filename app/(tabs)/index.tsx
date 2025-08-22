@@ -34,7 +34,7 @@ export default function Index() {
       if (acceleration && moviesRef.current && moviesRef.current.length > 0) {
         const { x, y, z } = acceleration;
         const totalAcceleration = Math.sqrt(x*x + y*y + z*z);
-        if (totalAcceleration > 2.0) {
+        if (totalAcceleration > 8.0) {
           const now = Date.now();
           if (now - lastShakeRef.current > 3000) {
             const movie = moviesRef.current[Math.floor(Math.random() * moviesRef.current.length)];

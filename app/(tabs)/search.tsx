@@ -10,8 +10,6 @@ import { FlatList, StyleSheet, Text, View } from "react-native";
 const Search = () => {
   const router = useRouter();
   const [searchQuery, setSearchQuery] = useState("");
-  // ...existing code...
-
   const { 
     data: movies, 
     loading: moviesLoading, 
@@ -28,8 +26,6 @@ const Search = () => {
     }, 500);
     return () => clearTimeout(timeoutId);
   }, [searchQuery]);
-
-  // ...existing code...
 
   return (
     <LinearGradient
