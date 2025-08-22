@@ -3,12 +3,14 @@ import SearchBarComponent from "@/components/SearchBar";
 import { fetchMovies } from "@/services/api";
 import useFetch from "@/services/useFetch";
 import { LinearGradient } from "expo-linear-gradient";
-import { router } from "expo-router";
-import { useEffect, useState } from "react";
+import { useRouter } from "expo-router";
+import { useEffect, useState } from 'react';
 import { FlatList, StyleSheet, Text, View } from "react-native";
 
 const Search = () => {
+  const router = useRouter();
   const [searchQuery, setSearchQuery] = useState("");
+  // ...existing code...
 
   const { 
     data: movies, 
@@ -16,22 +18,18 @@ const Search = () => {
     error: moviesError, 
     refetch: loadMovies, 
     reset 
-  } = useFetch(() =>
-    fetchMovies({ query: searchQuery })
-  );
+  } = useFetch(() => fetchMovies({ query: searchQuery }));
 
-  // Debounced search effect
+  // Debounced search
   useEffect(() => {
-    const timeoutId = setTimeout(async () => {
-      if (searchQuery.trim()) {
-        await loadMovies();
-      } else {
-        reset();
-      }
+    const timeoutId = setTimeout(() => {
+      if (searchQuery.trim()) loadMovies();
+      else reset();
     }, 500);
-
     return () => clearTimeout(timeoutId);
   }, [searchQuery]);
+
+  // ...existing code...
 
   return (
     <LinearGradient
@@ -42,11 +40,10 @@ const Search = () => {
     >
       <View style={styles.content}>
         <Text style={styles.title}>Search Movies</Text>
-        
         <SearchBarComponent
           placeholder="Search for a movie..."
           value={searchQuery}
-          onChangeText={(text) => setSearchQuery(text)}
+          onChangeText={setSearchQuery}
         />
 
         <FlatList
@@ -55,25 +52,24 @@ const Search = () => {
           numColumns={3}
           columnWrapperStyle={{ justifyContent: "space-between", marginBottom: 15 }}
           contentContainerStyle={{ paddingBottom: 20 }}
-          renderItem={({ item }) => <MovieCard 
-          movie={item} 
-          onPress={() => router.push(`/movie/${item.id}`)}
-          />}
+          renderItem={({ item }) => (
+            <MovieCard
+              movie={item}
+              onPress={() => router.push(`/movie/${item.id}`)}
+            />
+          )}
           ListHeaderComponent={
             <View>
-
               {moviesLoading && (
                 <Text style={{ color: "#FFD700", textAlign: "center", marginTop: 20 }}>
                   Loading movies...
                 </Text>
               )}
-
               {moviesError && (
                 <Text style={{ color: "red", textAlign: "center", marginTop: 20 }}>
                   Error: {moviesError.message || "Failed to fetch movies"}
                 </Text>
               )}
-
               {!moviesLoading && !moviesError && searchQuery.trim() && movies?.length > 0 && (
                 <View style={{ flexDirection: 'row', marginTop: 10 }}>
                   <Text style={{ color: "white", fontWeight: "900" }}>Search Results for </Text>
@@ -90,6 +86,9 @@ const Search = () => {
             ) : null
           }
         />
+
+  {/* ...existing code... */}
+
       </View>
     </LinearGradient>
   );

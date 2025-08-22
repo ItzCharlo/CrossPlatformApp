@@ -4,7 +4,7 @@
     "slug": "CrossPLatformApp",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "../../assets/images/MovieLogo.png",
+    "icon": "./MovieLogo.png",
     "scheme": "crossplatformapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
@@ -13,7 +13,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "../../assets/images/MovieLogo.png",
+        "foregroundImage": "./MovieLogo.png",
         "backgroundColor": "#ffffff"
       },
       "edgeToEdgeEnabled": true
@@ -21,14 +21,14 @@
     "web": {
       "bundler": "metro",
       "output": "static",
-      "favicon": "../../assets/images/MovieLogo.png"
+      "favicon": "./MovieLogo.png"
     },
     "plugins": [
       "expo-router",
       [
         "expo-splash-screen",
         {
-          "image": "../../assets/images/MovieLogo.png",
+          "image": "./MovieLogo.png",
           "imageWidth": 200,
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"

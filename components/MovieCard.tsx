@@ -1,5 +1,5 @@
-import { View, Text, Image, StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
 import React from 'react';
+import { Dimensions, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 interface MovieCardProps {
   movie: Movie;
